@@ -1,0 +1,58 @@
+{
+  "name": "use-next-tick",
+  "version": "1.0.0-alpha.0",
+  "description": "React hook that queues callbacks to run in useLayoutEffect after the next render — similar to Vue's nextTick",
+  "repository": "suhaotian/use-next-tick",
+  "bugs": "https://github.com/suhaotian/use-next-tick/issues",
+  "homepage": "https://suhaotian.github.io/use-next-tick",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "workspaces": [
+    "demos/**",
+    "./**"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist  && bun build.ts && tsc --emitDeclarationOnly"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "react",
+    "nextTick",
+    "nextTick hook",
+    "useLayoutEffect"
+  ],
+  "author": {
+    "name": "@suhaotian",
+    "url": "https://github.com/suhaotian"
+  },
+  "license": "MIT"
+}
