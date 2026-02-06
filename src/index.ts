@@ -12,13 +12,16 @@ export default function useNextTick(): (cb: NextTickCallback) => void {
     pendingRef.current = false;
     const pending = callbacksRef.current;
     callbacksRef.current = [];
-
-    // DOM is now updated, run callbacks
-    setTimeout(() => {
+    // Cross-platform: setImmediate for RN, setTimeout for web
+    const schedule =
+      typeof setImmediate !== "undefined"
+        ? setImmediate
+        : (cb: () => void) => setTimeout(cb, 0);
+    schedule(() => {
       for (const cb of pending) {
         cb();
       }
-    }, 0);
+    });
   });
 
   const nextTick = useCallback((cb: NextTickCallback) => {

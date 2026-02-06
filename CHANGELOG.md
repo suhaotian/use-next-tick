@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.0.3
+
+- If `setImmediate` use `setImmediate`, if not avaiable, use `setTimeout`
+- Improve README
+
 ## v1.0.2
 
 Wrap callbacks in setTimeout

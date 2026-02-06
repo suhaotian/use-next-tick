@@ -7,7 +7,8 @@ import { Github, Copy, Check, Package } from "lucide-react";
 const NPM_URL = "https://www.npmjs.com/package/use-next-tick";
 const GITHUB_URL = "https://github.com/suhaotian/use-next-tick";
 
-const USAGE_BASIC = `import useNextTick from "use-next-tick";
+const USAGE_BASIC = `import { useState, useRef } from "react";
+import useNextTick from "use-next-tick";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
@@ -17,29 +18,31 @@ function MyComponent() {
   const handleClick = () => {
     setCount((c) => c + 1);
     nextTick(() => {
-      // DOM is already updated here
-      console.log(ref.current?.textContent);
+      console.log(ref.current?.textContent); // "1" ✓
     });
   };
 
   return <span ref={ref}>{count}</span>;
 }`;
 
-const USAGE_ASYNC = `// Async callbacks are fire-and-forget
-nextTick(async () => {
-  await saveToServer();
-  showToast("saved");
-});`;
+const WITHOUT_NEXT_TICK = `import { useState, useRef } from "react";
 
-const USAGE_CHAIN = `// Chain: trigger another nextTick inside a callback
-nextTick(() => {
-  measureLayout();
-  setCount((c) => c + 1);
-  nextTick(() => {
-    // runs after the chained re-render
-    readUpdatedDOM();
-  });
-});`;
+function MyComponent() {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  const handleClick = () => {
+    setCount((c) => c + 1);
+  };
+
+  // We need extra useEffect
+  useEffect(() => {
+    console.log(ref.current?.textContent);
+  }, [count]);
+
+  return <span ref={ref}>{count}</span>;
+}`;
+
 
 /* ------------------------------------------------------------------ */
 /*  Shared components                                                  */
@@ -168,7 +171,7 @@ export function NextTickTestComponent() {
       {/* Header */}
       <header className="border-b border-gray-800 px-8 py-4">
         <div className="mx-auto flex max-w-3xl items-center justify-between">
-          <h1 className="text-lg font-bold tracking-tight">useNextTick</h1>
+          <h1 className="text-lg font-bold tracking-tight text-indigo-400">use-next-tick</h1>
           <NavLinks />
         </div>
       </header>
@@ -180,19 +183,24 @@ export function NextTickTestComponent() {
             <div className="mb-3 inline-block rounded-full border border-indigo-800 bg-indigo-950 px-3 py-1 text-xs font-medium text-indigo-300">
               React Hook
             </div>
-            <h2 className="mb-4 text-5xl font-extrabold tracking-tight text-white">
-              useNextTick
+            <h2 className="mb-4 text-5xl font-extrabold tracking-tight text-indigo-400">
+              use-next-tick
             </h2>
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-400">
-              Queue callbacks to run after React commits the DOM — like Vue's{" "}
-              <code className="rounded bg-gray-800 px-1.5 py-0.5 text-sm text-gray-300">
-                nextTick
-              </code>
-              , powered by{" "}
-              <code className="rounded bg-gray-800 px-1.5 py-0.5 text-sm text-gray-300">
-                useEffect
-              </code>
+              A tiny React hook for running callbacks after the DOM or native
+              views have updated.
             </p>
+
+            <h3 className="mb-4 text-3xl font-extrabold tracking-tight text-white">
+              Why?
+            </h3>
+            <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-400">
+              Sometimes you need to read layout, measure elements, or access
+              refs <strong>right after</strong> a state change—but React updates
+              asynchronously. <code className='text-indigo-400'>useNextTick</code> gives you a simple way to schedule
+              code that runs after React commits your changes.
+            </p>
+
             <div className="flex items-center gap-3">
               <div className="rounded-lg border border-gray-800 bg-gray-900 px-4 py-2.5 font-mono text-sm text-gray-300">
                 npm i use-next-tick
@@ -201,7 +209,7 @@ export function NextTickTestComponent() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-500">
+                className="rounded-lg bg-indigo-600 px-2 md:px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-500">
                 Get Started
               </a>
             </div>
@@ -217,12 +225,12 @@ export function NextTickTestComponent() {
 
             <CodeBlock
               code={USAGE_BASIC}
-              label="Basic — read DOM after state update"
+              label="basic Usage — read DOM after state update"
             />
-            <CodeBlock code={USAGE_ASYNC} label="Async — fire-and-forget" />
+
             <CodeBlock
-              code={USAGE_CHAIN}
-              label="Chained — nextTick inside a callback"
+              code={WITHOUT_NEXT_TICK}
+              label="Without next tick — read DOM after state update."
             />
           </div>
         </section>
