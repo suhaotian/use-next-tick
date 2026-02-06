@@ -2,7 +2,7 @@
 
 ## v1.0.3
 
-- If `setImmediate` use `setImmediate`, if not avaiable, use `setTimeout`
+- If `setImmediate` available, use `setImmediate`, if not, use `setTimeout`
 - Improve README
 
 ## v1.0.2
