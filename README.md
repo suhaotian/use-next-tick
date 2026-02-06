@@ -75,6 +75,10 @@ useEffect(() => {
 
 With `useNextTick`, you get **imperative control**—callbacks only run when you explicitly schedule them.
 
+## Online Demo
+
+https://codesandbox.io/p/sandbox/react-dev-forked-jcljvj?file=%2Fsrc%2FApp.js%3A14%2C22
+
 ## Platform support
 
 Works on both **React DOM** (web) and **React Native**. Automatically uses the right scheduling mechanism for each platform.
