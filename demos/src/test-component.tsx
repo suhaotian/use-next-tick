@@ -187,7 +187,7 @@ export function NextTickTestComponent() {
               use-next-tick
             </h2>
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-400">
-              A tiny React hook for running callbacks after the DOM or native
+              A React hook for running callbacks after the DOM or native
               views have updated.
             </p>
 

@@ -1,6 +1,6 @@
 # [nextTick for React](https://suhaotian.github.io/use-next-tick/) &middot; [![Size](https://deno.bundlejs.com/badge?q=use-next-tick&treeshake=[{default}]&config={%22esbuild%22:{%22external%22:[%22react%22,%22react-dom%22,%22react/jsx-runtime%22]}})](https://bundlejs.com/?q=use-next-tick&treeshake=%5B%7Bdefault%7D%5D&config=%7B%22esbuild%22:%7B%22external%22:%5B%22react%22,%22react-dom%22,%22react/jsx-runtime%22%5D%7D%7D) [![npm version](https://img.shields.io/npm/v/use-next-tick.svg?style=flat)](https://www.npmjs.com/package/use-next-tick) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/suhaotian/use-next-tick/pulls) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/suhaotian/use-next-tick/blob/main/LICENSE) [![jsDocs.io](https://img.shields.io/badge/jsDocs.io-reference-blue)](https://www.jsdocs.io/package/use-next-tick) ![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label&color=blue)
 
-A tiny React hook for running callbacks after the DOM or native views have updated.
+A React hook for running callbacks after the DOM or native views have updated.
 
 ## Why?
 
