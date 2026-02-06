@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.0.1
+
+Improve the implementaion
 
 ## v1.0.0
 

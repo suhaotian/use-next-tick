@@ -190,7 +190,7 @@ export function NextTickTestComponent() {
               </code>
               , powered by{" "}
               <code className="rounded bg-gray-800 px-1.5 py-0.5 text-sm text-gray-300">
-                useLayoutEffect
+                useEffect
               </code>
             </p>
             <div className="flex items-center gap-3">
