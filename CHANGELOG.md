@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.0.2
+
+Wrap callbacks in setTimeout
+
 ## v1.0.1
 
 Improve the implementaion

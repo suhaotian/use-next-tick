@@ -14,9 +14,11 @@ export default function useNextTick(): (cb: NextTickCallback) => void {
     callbacksRef.current = [];
 
     // DOM is now updated, run callbacks
-    for (const cb of pending) {
-      cb();
-    }
+    setTimeout(() => {
+      for (const cb of pending) {
+        cb();
+      }
+    }, 0);
   });
 
   const nextTick = useCallback((cb: NextTickCallback) => {

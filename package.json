@@ -1,6 +1,6 @@
 {
   "name": "use-next-tick",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React hook that queues callbacks to run code in useEffect after the next render — similar to Vue's nextTick",
   "repository": "suhaotian/use-next-tick",
   "bugs": "https://github.com/suhaotian/use-next-tick/issues",
