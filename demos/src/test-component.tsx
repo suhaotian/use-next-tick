@@ -55,7 +55,7 @@ function NavLinks({ className }: { className?: string }) {
         href={NPM_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-1.5 rounded-md bg-gray-800 px-3 py-1.5 text-sm text-gray-300 transition-colors hover:bg-gray-700 hover:text-white">
+        className="flex items-center gap-1.5 rounded-md bg-gray-800 px-3 py-1.5 text-sm text-red-400 transition-colors hover:bg-gray-700 hover:text-white">
         <Package className="h-4 w-4" />
         npm
       </a>
@@ -202,16 +202,9 @@ export function NextTickTestComponent() {
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="rounded-lg border border-gray-800 bg-gray-900 px-4 py-2.5 font-mono text-sm text-gray-300">
+              <div className="rounded-lg border border-gray-800 bg-gray-900 px-4 py-2.5 font-mono text-sm text-red-400">
                 npm i use-next-tick
               </div>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg bg-indigo-600 px-2 md:px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-500">
-                Get Started
-              </a>
             </div>
           </div>
         </section>
@@ -379,7 +372,7 @@ export function NextTickTestComponent() {
                     href={project.npm}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-gray-500 transition-colors hover:text-white">
+                    className="flex items-center gap-1.5 text-xs text-red-400 transition-colors hover:text-white">
                     <Package className="h-3.5 w-3.5" />
                     npm
                   </a>
