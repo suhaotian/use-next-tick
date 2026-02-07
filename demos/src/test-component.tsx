@@ -165,6 +165,11 @@ export function NextTickTestComponent() {
 
   const clearLogs = () => setLogs([]);
 
+  const [showPlayground, setShowPlayground] = useState(false);
+  const handleShowPlayground = () => {
+    setShowPlayground(true);
+  };
+
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-gray-950 text-gray-100">
       {/* Header */}
@@ -233,10 +238,20 @@ const handleClick = () => {
               Online Playground
             </h3>
 
-            <iframe
-              className="w-full aspect-video max-w-5xl mx-auto"
-              src="https://codesandbox.io/p/sandbox/react-dev-forked-jcljvj?file=%2Fsrc%2FApp.js"
-            />
+            {showPlayground ? (
+              <iframe
+                className="w-full aspect-video max-w-5xl mx-auto"
+                src="https://codesandbox.io/p/sandbox/react-dev-forked-jcljvj?file=%2Fsrc%2FApp.js"
+              />
+            ) : (
+              <div className="w-full aspect-6/1 max-w-5xl mx-auto flex items-center justify-center">
+                <button
+                  onClick={handleShowPlayground}
+                  className="bg-indigo-500 px-5 py-2.5 font-semibold rounded-lg cursor-pointer">
+                  Show Online Playground
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
