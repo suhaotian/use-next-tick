@@ -1,44 +1,51 @@
 #!/usr/bin/env bun
 import path from "path";
-const start = performance.now();
 
-const result = await Bun.build({
-  entrypoints: ["./src/index.ts"],
-  outdir: "./dist",
-  format: "esm",
-  external: ["react", "react-dom", "react-native"],
-  minify: true,
-  sourcemap: "linked",
-  define: {
-    "process.env.NODE_ENV": JSON.stringify("production"),
-  },
-});
+async function build() {
+  const start = performance.now();
 
-const formatFileSize = (bytes: number): string => {
-  const units = ["B", "KB", "MB", "GB"];
-  let size = bytes;
-  let unitIndex = 0;
+  const result = await Bun.build({
+    entrypoints: ["./src/index.ts", "./src/react-native.ts"],
+    outdir: "./dist",
+    format: "esm",
+    external: ["react", "react-dom", "react-native"],
+    minify: true,
+    sourcemap: "linked",
+    define: {
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    },
+  });
 
-  while (size >= 1024 && unitIndex < units.length - 1) {
-    size /= 1024;
-    unitIndex++;
-  }
+  const formatFileSize = (bytes: number): string => {
+    const units = ["B", "KB", "MB", "GB"];
+    let size = bytes;
+    let unitIndex = 0;
 
-  return `${size.toFixed(2)} ${units[unitIndex]}`;
-};
+    while (size >= 1024 && unitIndex < units.length - 1) {
+      size /= 1024;
+      unitIndex++;
+    }
 
-console.log("\n🚀 Starting build process...\n");
+    return `${size.toFixed(2)} ${units[unitIndex]}`;
+  };
 
-const end = performance.now();
+  console.log("\n🚀 Starting build process...\n");
 
-const outputTable = result.outputs.map((output) => ({
-  File: path.relative(process.cwd(), output.path),
-  Type: output.kind,
-  Size: formatFileSize(output.size),
-}));
+  const end = performance.now();
 
-console.table(outputTable);
-const buildTime = (end - start).toFixed(2);
+  const outputTable = result.outputs.map((output) => ({
+    File: path.relative(process.cwd(), output.path),
+    Type: output.kind,
+    Size: formatFileSize(output.size),
+  }));
 
-console.log(`\n✅ Build completed in ${buildTime}ms\n`);
+  console.table(outputTable);
+  const buildTime = (end - start).toFixed(2);
+
+  console.log(`\n✅ Build completed in ${buildTime}ms\n`);
+}
+
 export {};
+
+
+build();

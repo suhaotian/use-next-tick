@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.0
+
+- Separate entry for React and React Native
+
 ## v1.0.3
 
 - If `setImmediate` available, use `setImmediate`, if not, use `setTimeout`
