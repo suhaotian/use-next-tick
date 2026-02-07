@@ -209,6 +209,34 @@ export function NextTickTestComponent() {
                 npm i use-next-tick
               </div>
             </div>
+
+            <pre className="mx-auto text-xs">
+              {`
+const [count, setCount] = useState(0)
+const nextTick = useNextTick();
+
+const handleClick = () => {
+  setCount(c => c+1);
+  nextTick(() => {
+    // Run code after setCount update
+  })
+}
+          `}
+            </pre>
+          </div>
+        </section>
+
+        {/* Demo */}
+        <section className="border-b border-gray-800 py-16 px-8">
+          <div className="mx-auto max-w-3xl space-y-8">
+            <h3 className="text-2xl font-bold tracking-tight text-white">
+              Online Playground
+            </h3>
+
+            <iframe
+              className="w-full aspect-video"
+              src="https://codesandbox.io/p/sandbox/react-dev-forked-jcljvj?file=%2Fsrc%2FApp.js"
+            />
           </div>
         </section>
 
