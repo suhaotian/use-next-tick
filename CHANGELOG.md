@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.2
+
+- Move the entry `react-native` to top.
+
 ## v1.1.1
 
 - Revert: revert `setImmediate` to `setTimeout` in React Native.
