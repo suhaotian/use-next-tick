@@ -228,13 +228,13 @@ const handleClick = () => {
 
         {/* Demo */}
         <section className="border-b border-gray-800 py-16 px-8">
-          <div className="mx-auto max-w-3xl space-y-8">
-            <h3 className="text-2xl font-bold tracking-tight text-white">
+          <div className="space-y-8">
+            <h3 className="text-2xl mx-auto max-w-3xl font-bold tracking-tight text-white">
               Online Playground
             </h3>
 
             <iframe
-              className="w-full aspect-video"
+              className="w-full aspect-video max-w-5xl mx-auto"
               src="https://codesandbox.io/p/sandbox/react-dev-forked-jcljvj?file=%2Fsrc%2FApp.js"
             />
           </div>
