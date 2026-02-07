@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.1
+
+- Revert: revert `setImmediate` to `setTimeout` in React Native.
+
 ## v1.1.0
 
 - Separate entry for React and React Native

@@ -1,6 +1,6 @@
 {
   "name": "use-next-tick",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A React hook for running callbacks after the DOM or native views have updated.",
   "repository": "suhaotian/use-next-tick",
   "bugs": "https://github.com/suhaotian/use-next-tick/issues",

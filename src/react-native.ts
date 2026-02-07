@@ -12,11 +12,11 @@ export default function useNextTick(): (cb: NextTickCallback) => void {
     pendingRef.current = false;
     const pending = callbacksRef.current;
     callbacksRef.current = [];
-    setImmediate(() => {
+    setTimeout(() => {
       for (const cb of pending) {
         cb();
       }
-    });
+    }, 0);
   });
 
   const nextTick = useCallback((cb: NextTickCallback) => {
