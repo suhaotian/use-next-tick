@@ -26,3 +26,7 @@ export default function useNextTick(
 
   return nextTick;
 }
+
+export function useNextTickLayout() {
+  return useNextTick(useLayoutEffect);
+}

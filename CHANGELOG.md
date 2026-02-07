@@ -2,7 +2,7 @@
 
 ## v1.1.3
 
-- Feat: add `useEffect` or `useLayoutEffect` as effect hook, default is `useEffect`
+- Feat: add `useNextTickLayout` hook
 
 ## v1.1.2
 

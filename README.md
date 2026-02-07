@@ -17,14 +17,14 @@ npm install use-next-tick
 ```tsx
 "use client";
 import { useState, useRef, useLayoutEffect } from "react";
-import useNextTick from "use-next-tick";
+import useNextTick, {useNextTickLayout} from "use-next-tick";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const nextTick = useNextTick();
   /*
-  const nextTick = useNextTick(useLayoutEffect); // if you need `useLayoutEffect` instead off `useEffect`
+  const nextTick = useNextTickLayout(); // if you need `useLayoutEffect` instead off `useEffect`
   */
 
   const handleClick = () => {
