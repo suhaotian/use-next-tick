@@ -43,7 +43,6 @@ function MyComponent() {
   return <span ref={ref}>{count}</span>;
 }`;
 
-
 /* ------------------------------------------------------------------ */
 /*  Shared components                                                  */
 /* ------------------------------------------------------------------ */
@@ -171,7 +170,9 @@ export function NextTickTestComponent() {
       {/* Header */}
       <header className="border-b border-gray-800 px-8 py-4">
         <div className="mx-auto flex max-w-3xl items-center justify-between">
-          <h1 className="text-lg font-bold tracking-tight text-indigo-400">use-next-tick</h1>
+          <h1 className="text-lg font-bold tracking-tight text-indigo-400">
+            use-next-tick
+          </h1>
           <NavLinks />
         </div>
       </header>
@@ -187,8 +188,8 @@ export function NextTickTestComponent() {
               use-next-tick
             </h2>
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-400">
-              A React hook for running callbacks after the DOM or native
-              views have updated.
+              A React hook for running callbacks after the DOM or native views
+              have updated.
             </p>
 
             <h3 className="mb-4 text-3xl font-extrabold tracking-tight text-white">
@@ -197,8 +198,10 @@ export function NextTickTestComponent() {
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-400">
               Sometimes you need to read layout, measure elements, or access
               refs <strong>right after</strong> a state change—but React updates
-              asynchronously. <code className='text-indigo-400'>useNextTick</code> gives you a simple way to schedule
-              code that runs after React commits your changes.
+              asynchronously.{" "}
+              <code className="text-indigo-400">useNextTick</code> gives you a
+              simple way to schedule code that runs after React commits your
+              changes.
             </p>
 
             <div className="flex items-center gap-3">
@@ -370,6 +373,9 @@ export function NextTickTestComponent() {
                 <div className="flex items-center gap-3">
                   <a
                     href={project.npm}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-xs text-red-400 transition-colors hover:text-white">
@@ -378,6 +384,9 @@ export function NextTickTestComponent() {
                   </a>
                   <a
                     href={project.github}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-xs text-gray-500 transition-colors hover:text-white">
