@@ -1,12 +1,14 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useRef, useCallback, useLayoutEffect, useEffect } from "react";
 
 export type NextTickCallback = () => void | Promise<void>;
 
-export default function useNextTick(): (cb: NextTickCallback) => void {
+export default function useNextTick(
+  useEffectHook: typeof useEffect | typeof useLayoutEffect = useEffect
+): (cb: NextTickCallback) => void {
   const callbacksRef = useRef<NextTickCallback[]>([]);
   const pendingRef = useRef(false);
 
-  useEffect(() => {
+  useEffectHook(() => {
     if (!pendingRef.current) return;
 
     pendingRef.current = false;

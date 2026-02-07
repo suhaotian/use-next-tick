@@ -16,13 +16,16 @@ npm install use-next-tick
 
 ```tsx
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import useNextTick from "use-next-tick";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const nextTick = useNextTick();
+  /*
+  const nextTick = useNextTick(useLayoutEffect); // if you need `useLayoutEffect` instead off `useEffect`
+  */
 
   const handleClick = () => {
     setCount((c) => c + 1);
@@ -94,7 +97,7 @@ bun install && bun run build
 ## TypeScript
 
 ```ts
-function useNextTick(): (cb: () => void | Promise<void>) => void;
+export default function useNextTick(useEffectHook?: typeof useEffect | typeof useLayoutEffect): (cb: NextTickCallback) => void;
 ```
 
 Fully typed. Callbacks can be sync or async:

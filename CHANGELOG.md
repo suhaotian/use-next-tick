@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.3
+
+- Feat: add `useEffect` or `useLayoutEffect` as effect hook, default is `useEffect`
+
 ## v1.1.2
 
 - Move the entry `react-native` to top.
