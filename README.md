@@ -4,7 +4,9 @@ A React hook for running callbacks after the DOM or native views have updated.
 
 ## Why?
 
-Sometimes you need to read layout, measure elements, or access refs **right after** a state change—but React updates asynchronously. `useNextTick` gives you a simple way to schedule code that runs after React commits your changes.
+Sometimes you need to read the layout, measure elements, or access refs **right after** a state change—but React updates asynchronously. `useNextTick` provides a simple way to schedule code that runs after React commits your changes, without requiring an extra `useEffect`.
+
+If you have used Vue.js before, you know `nextTick`; `use-next-tick` is the equivalent of `nextTick` for React.
 
 ## Install
 
@@ -17,7 +19,7 @@ npm install use-next-tick
 ```tsx
 "use client";
 import { useState, useRef, useLayoutEffect } from "react";
-import useNextTick, {useNextTickLayout} from "use-next-tick";
+import useNextTick, { useNextTickLayout } from "use-next-tick";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
@@ -97,7 +99,9 @@ bun install && bun run build
 ## TypeScript
 
 ```ts
-export default function useNextTick(useEffectHook?: typeof useEffect | typeof useLayoutEffect): (cb: NextTickCallback) => void;
+export default function useNextTick(
+  useEffectHook?: typeof useEffect | typeof useLayoutEffect
+): (cb: NextTickCallback) => void;
 ```
 
 Fully typed. Callbacks can be sync or async:

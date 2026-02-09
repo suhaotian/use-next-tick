@@ -193,8 +193,7 @@ export function NextTickTestComponent() {
               use-next-tick
             </h2>
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-400">
-              A React hook for running callbacks after the DOM or native views
-              have updated.
+              <b className='text-indigo-400'>nextTick</b> for React, used to run callbacks after the DOM or native views have updated.
             </p>
 
             <h3 className="mb-4 text-3xl font-extrabold tracking-tight text-white">
