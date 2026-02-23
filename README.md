@@ -26,7 +26,7 @@ function MyComponent() {
   const ref = useRef<HTMLSpanElement>(null);
   const nextTick = useNextTick();
   /*
-  const nextTick = useNextTickLayout(); // if you need `useLayoutEffect` instead off `useEffect`
+  const nextTick = useNextTickLayout(); // if you need `useLayoutEffect` instead of `useEffect`
   */
 
   const handleClick = () => {
