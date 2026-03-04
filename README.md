@@ -52,10 +52,13 @@ function MyComponent() {
 ✅ **Use `useNextTick` when:**
 
 - Measuring elements after a state change
-- Scrolling to newly rendered content
 - Reading layout values (width, height, position)
 - Focusing inputs after conditional rendering
 - One-off actions triggered by specific user events
+
+✅ **Use `useNextTickLayout` when:**
+
+- Scrolling to newly rendered content
 
 ❌ **Don't use it when:**
 
